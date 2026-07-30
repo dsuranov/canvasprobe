@@ -33,6 +33,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Attest release artifacts
-        uses: actions/attest@v4
+        uses: actions/attest@v4.2.0
         with:
           subject-checksums: dist/checksums.txt
