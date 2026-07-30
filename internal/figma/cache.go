@@ -17,10 +17,10 @@ type Cache struct {
 
 func DefaultCacheDir() string {
 	if xdg := os.Getenv("XDG_CACHE_HOME"); xdg != "" {
-		return filepath.Join(xdg, "canvasprobe")
+		return filepath.Join(xdg, "fgm-c")
 	}
 	home, _ := os.UserHomeDir()
-	return filepath.Join(home, ".cache", "canvasprobe")
+	return filepath.Join(home, ".cache", "fgm-c")
 }
 
 func NewCache(dir string, ttl time.Duration) (*Cache, error) {

@@ -6,7 +6,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/dsuranov/canvasprobe/internal/figma"
+	"github.com/dsuranov/fgm-c/internal/figma"
 )
 
 func newCacheCmd() *cobra.Command {
@@ -45,7 +45,7 @@ func newCacheCmd() *cobra.Command {
 
 	cacheCmd.AddCommand(&cobra.Command{
 		Use:   "purge",
-		Short: "Delete all CanvasProbe cache entries",
+		Short: "Delete all FGM-C cache entries",
 		Args:  cobra.NoArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			cache, err := figma.NewCache(figma.DefaultCacheDir(), time.Minute)

@@ -12,8 +12,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/dsuranov/canvasprobe/internal/jsonpipe"
-	"github.com/dsuranov/canvasprobe/internal/output"
+	"github.com/dsuranov/fgm-c/internal/jsonpipe"
+	"github.com/dsuranov/fgm-c/internal/output"
 )
 
 var fileKeyRe = regexp.MustCompile(`^[A-Za-z0-9]+$`)
@@ -37,10 +37,10 @@ func newFileCmd() *cobra.Command {
 		Long: `Fetch design file data from the Figma REST API.
 
 Operations (specified after the file key):
-  canvasprobe file <key>                  Fetch file tree (default: --depth 2)
-  canvasprobe file <key> nodes <ids>      Fetch specific nodes by comma-separated ID
-  canvasprobe file <key> components       List file components
-  canvasprobe file <key> styles           List file styles`,
+  fgm-c file <key>                  Fetch file tree (default: --depth 2)
+  fgm-c file <key> nodes <ids>      Fetch specific nodes by comma-separated ID
+  fgm-c file <key> components       List file components
+  fgm-c file <key> styles           List file styles`,
 		Args: cobra.MinimumNArgs(1),
 		RunE: fileRunE,
 	}

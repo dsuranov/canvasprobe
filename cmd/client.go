@@ -4,7 +4,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/dsuranov/canvasprobe/internal/figma"
+	"github.com/dsuranov/fgm-c/internal/figma"
 )
 
 var clientOptionsOverride func(*figma.Options)
@@ -21,7 +21,7 @@ func newFigmaClient() (*figma.Client, error) {
 	opts := figma.Options{
 		Token:     cfg.Token,
 		Timeout:   time.Duration(cfg.Timeout) * time.Second,
-		UserAgent: "canvasprobe/" + version,
+		UserAgent: "fgm-c/" + version,
 		Verbose:   flags.verbose,
 		Stderr:    os.Stderr,
 		Cache:     cache,

@@ -77,17 +77,17 @@ func loadEnv(cfg *Config) {
 	if v := os.Getenv("FIGMA_API_TOKEN"); v != "" {
 		cfg.Token = v
 	}
-	if v := os.Getenv("CANVASPROBE_TOKEN"); v != "" {
+	if v := os.Getenv("FGM_C_TOKEN"); v != "" {
 		cfg.Token = v
 	}
-	if v := os.Getenv("CANVASPROBE_DEFAULT_FORMAT"); v != "" {
+	if v := os.Getenv("FGM_C_DEFAULT_FORMAT"); v != "" {
 		cfg.DefaultFormat = v
 	}
-	if v := os.Getenv("CANVASPROBE_CACHE_TTL"); v != "" {
-		cfg.CacheTTL = parseEnvInt("CANVASPROBE_CACHE_TTL", v, cfg.CacheTTL)
+	if v := os.Getenv("FGM_C_CACHE_TTL"); v != "" {
+		cfg.CacheTTL = parseEnvInt("FGM_C_CACHE_TTL", v, cfg.CacheTTL)
 	}
-	if v := os.Getenv("CANVASPROBE_TIMEOUT"); v != "" {
-		cfg.Timeout = parseEnvInt("CANVASPROBE_TIMEOUT", v, cfg.Timeout)
+	if v := os.Getenv("FGM_C_TIMEOUT"); v != "" {
+		cfg.Timeout = parseEnvInt("FGM_C_TIMEOUT", v, cfg.Timeout)
 	}
 }
 
@@ -109,5 +109,5 @@ func configPath() (string, error) {
 		}
 		base = filepath.Join(home, ".config")
 	}
-	return filepath.Join(base, "canvasprobe", "config.yaml"), nil
+	return filepath.Join(base, "fgm-c", "config.yaml"), nil
 }

@@ -23,10 +23,10 @@ func TestEnvOverridesDefault(t *testing.T) {
 	clearEnv(t)
 	t.Setenv("XDG_CONFIG_HOME", t.TempDir())
 	t.Setenv("FIGMA_API_TOKEN", "upstream-token")
-	t.Setenv("CANVASPROBE_TOKEN", "primary-token")
-	t.Setenv("CANVASPROBE_DEFAULT_FORMAT", "table")
-	t.Setenv("CANVASPROBE_CACHE_TTL", "60")
-	t.Setenv("CANVASPROBE_TIMEOUT", "45")
+	t.Setenv("FGM_C_TOKEN", "primary-token")
+	t.Setenv("FGM_C_DEFAULT_FORMAT", "table")
+	t.Setenv("FGM_C_CACHE_TTL", "60")
+	t.Setenv("FGM_C_TIMEOUT", "45")
 
 	cfg, err := Load()
 	if err != nil {
@@ -45,7 +45,7 @@ func TestYAMLAndEnvPrecedence(t *testing.T) {
 	dir := t.TempDir()
 	t.Setenv("XDG_CONFIG_HOME", dir)
 
-	cfgDir := filepath.Join(dir, "canvasprobe")
+	cfgDir := filepath.Join(dir, "fgm-c")
 	if err := os.MkdirAll(cfgDir, 0700); err != nil {
 		t.Fatal(err)
 	}
@@ -53,7 +53,7 @@ func TestYAMLAndEnvPrecedence(t *testing.T) {
 	if err := os.WriteFile(filepath.Join(cfgDir, "config.yaml"), []byte(content), 0600); err != nil {
 		t.Fatal(err)
 	}
-	t.Setenv("CANVASPROBE_TOKEN", "env-token")
+	t.Setenv("FGM_C_TOKEN", "env-token")
 
 	cfg, err := Load()
 	if err != nil {
@@ -68,7 +68,7 @@ func TestUnsafeConfigPermissionsFail(t *testing.T) {
 	clearEnv(t)
 	dir := t.TempDir()
 	t.Setenv("XDG_CONFIG_HOME", dir)
-	cfgDir := filepath.Join(dir, "canvasprobe")
+	cfgDir := filepath.Join(dir, "fgm-c")
 	if err := os.MkdirAll(cfgDir, 0700); err != nil {
 		t.Fatal(err)
 	}
@@ -87,9 +87,9 @@ func TestInvalidValuesFail(t *testing.T) {
 		key   string
 		value string
 	}{
-		{"format", "CANVASPROBE_DEFAULT_FORMAT", "xml"},
-		{"negative ttl", "CANVASPROBE_CACHE_TTL", "-1"},
-		{"zero timeout", "CANVASPROBE_TIMEOUT", "0"},
+		{"format", "FGM_C_DEFAULT_FORMAT", "xml"},
+		{"negative ttl", "FGM_C_CACHE_TTL", "-1"},
+		{"zero timeout", "FGM_C_TIMEOUT", "0"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -107,10 +107,10 @@ func clearEnv(t *testing.T) {
 	t.Helper()
 	for _, key := range []string{
 		"FIGMA_API_TOKEN",
-		"CANVASPROBE_TOKEN",
-		"CANVASPROBE_DEFAULT_FORMAT",
-		"CANVASPROBE_CACHE_TTL",
-		"CANVASPROBE_TIMEOUT",
+		"FGM_C_TOKEN",
+		"FGM_C_DEFAULT_FORMAT",
+		"FGM_C_CACHE_TTL",
+		"FGM_C_TIMEOUT",
 		"XDG_CONFIG_HOME",
 	} {
 		t.Setenv(key, "")
