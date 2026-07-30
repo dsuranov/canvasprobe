@@ -1,4 +1,4 @@
-module github.com/dsuranov/canvasprobe
+module github.com/dsuranov/fgm-c
 
 go 1.25.0
 

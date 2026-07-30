@@ -48,7 +48,7 @@ type Options struct {
 
 func New(opts Options) (*Client, error) {
 	if opts.Token == "" {
-		return nil, fmt.Errorf("no token: set CANVASPROBE_TOKEN, FIGMA_API_TOKEN, use --token-stdin, or configure token")
+		return nil, fmt.Errorf("no token: set FGM_C_TOKEN, FIGMA_API_TOKEN, use --token-stdin, or configure token")
 	}
 
 	baseURL := opts.BaseURL
@@ -107,7 +107,7 @@ func New(opts Options) (*Client, error) {
 
 	userAgent := opts.UserAgent
 	if userAgent == "" {
-		userAgent = "canvasprobe/dev"
+		userAgent = "fgm-c/dev"
 	}
 	stderr := opts.Stderr
 	if stderr == nil {

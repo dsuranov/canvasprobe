@@ -38,7 +38,7 @@ func TestGetMeHeadersAndBody(t *testing.T) {
 		if r.Header.Get("Accept") != "application/json" {
 			t.Error("missing Accept header")
 		}
-		if !strings.HasPrefix(r.Header.Get("User-Agent"), "canvasprobe/") {
+		if !strings.HasPrefix(r.Header.Get("User-Agent"), "fgm-c/") {
 			t.Errorf("unexpected User-Agent: %q", r.Header.Get("User-Agent"))
 		}
 		_, _ = w.Write([]byte(want))

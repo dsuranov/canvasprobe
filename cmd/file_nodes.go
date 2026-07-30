@@ -6,7 +6,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/dsuranov/canvasprobe/internal/output"
+	"github.com/dsuranov/fgm-c/internal/output"
 )
 
 func runFileNodes(cmd *cobra.Command, fileKey, idsStr string) error {

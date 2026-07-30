@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/dsuranov/canvasprobe/cmd"
+	"github.com/dsuranov/fgm-c/cmd"
 )
 
 func main() {

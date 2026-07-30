@@ -11,7 +11,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/dsuranov/canvasprobe/internal/config"
+	"github.com/dsuranov/fgm-c/internal/config"
 )
 
 var version = "dev"
@@ -32,7 +32,7 @@ func newRootCmd() *cobra.Command {
 	fFlags = fileFlags{}
 
 	root := &cobra.Command{
-		Use:           "canvasprobe",
+		Use:           "fgm-c",
 		Short:         "Inspect design data and post explicit review comments",
 		Version:       version,
 		SilenceUsage:  true,

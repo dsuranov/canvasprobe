@@ -4,7 +4,13 @@ All notable changes are documented here.
 
 ## Unreleased
 
-- Renamed the project and binary to CanvasProbe.
+## 0.2.0 - 2026-07-30
+
+- Renamed the project, module, binary, configuration directory, cache directory, and environment prefix from CanvasProbe to FGM-C.
+
+## 0.1.0 - 2026-07-30
+
+- Renamed the original private project and binary to CanvasProbe.
 - Replaced token command-line values with environment, protected config, or stdin input.
 - Blocked credential forwarding across redirects.
 - Isolated cache entries by full token digest and API origin.

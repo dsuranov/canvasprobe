@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dsuranov/canvasprobe/internal/figma"
+	"github.com/dsuranov/fgm-c/internal/figma"
 )
 
 func testServer(t *testing.T) *httptest.Server {
@@ -84,7 +84,7 @@ func testServer(t *testing.T) *httptest.Server {
 
 func runCmd(t *testing.T, srv *httptest.Server, args ...string) (stdout, stderr string, err error) {
 	t.Helper()
-	t.Setenv("CANVASPROBE_TOKEN", "testtoken")
+	t.Setenv("FGM_C_TOKEN", "testtoken")
 	t.Setenv("XDG_CONFIG_HOME", t.TempDir())
 	t.Setenv("XDG_CACHE_HOME", t.TempDir())
 	oldOverride := clientOptionsOverride

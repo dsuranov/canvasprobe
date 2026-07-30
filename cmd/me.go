@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/dsuranov/canvasprobe/internal/output"
+	"github.com/dsuranov/fgm-c/internal/output"
 )
 
 func newMeCmd() *cobra.Command {
@@ -15,7 +15,7 @@ func newMeCmd() *cobra.Command {
 		Args:  cobra.NoArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.Token == "" {
-				return fmt.Errorf("no token: set CANVASPROBE_TOKEN, FIGMA_API_TOKEN, use --token-stdin, or configure token")
+				return fmt.Errorf("no token: set FGM_C_TOKEN, FIGMA_API_TOKEN, use --token-stdin, or configure token")
 			}
 
 			client, err := newFigmaClient()

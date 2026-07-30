@@ -1,5 +1,5 @@
 name: Bug report
-description: Report a reproducible CanvasProbe defect
+description: Report a reproducible FGM-C defect
 title: "bug: "
 labels: ["bug"]
 body:
@@ -9,7 +9,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: CanvasProbe version
+      label: FGM-C version
     validations:
       required: true
   - type: textarea

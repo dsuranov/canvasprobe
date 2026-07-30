@@ -1,6 +1,6 @@
 # API coverage
 
-CanvasProbe intentionally implements a narrow REST API surface:
+FGM-C intentionally implements a narrow REST API surface:
 
 | Command | Method and endpoint | Mutation |
 |---|---|---|
